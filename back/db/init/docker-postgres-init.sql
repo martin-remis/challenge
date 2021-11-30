@@ -1,0 +1,4 @@
+CREATE DATABASE db_challenge
+  WITH
+  OWNER = 'user'
+  CONNECTION LIMIT = -1;

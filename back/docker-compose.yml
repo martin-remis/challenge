@@ -1,0 +1,35 @@
+# docker-compose to run database and api
+version: "3"
+services:
+  app:
+    restart: unless-stopped
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_NAME: db_challenge
+      DB_USER: user
+      DB_PASS: pass
+      NODE_ENV: development
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    command: npm run dev
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    networks:
+      - default
+
+  postgres:
+    image: postgres:11
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+    networks:
+      - default
