@@ -17,4 +17,6 @@ const dbConfig = {
   },
 };
 
+console.log(JSON.stringify(dbConfig));
+
 module.exports = knex(dbConfig);

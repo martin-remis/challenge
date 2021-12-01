@@ -1,3 +1,9 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-extraneous-dependencies */
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv');
+}
+
 const config = {
   port: process.env.PORT || 3000,
   database: {

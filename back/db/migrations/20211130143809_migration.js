@@ -1,7 +1,7 @@
 exports.up = async (knex) => {
   await knex.schema
     .createTable('tasks', (table) => {
-      table.uuid('id').primary();
+      table.uuid('id').defaultTo(knex.raw('uuid_generate_v4 ()')).primary();
       table.text('title').notNullable();
     });
 };

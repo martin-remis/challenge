@@ -8,7 +8,8 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "knex": "node -r dotenv/config node_modules/.bin/knex",
-    "migration": "npm run knex -- migrate:latest --knexfile db/knexfile.js",
+    "migrations": "npm run knex -- migrate:latest --knexfile db/knexfile.js",
+    "migration-down": "npm run knex -- migrate:down --knexfile db/knexfile.js",
     "migration-create": "npm run knex -- migrate:make --knexfile db/knexfile.js"
   },
   "repository": {

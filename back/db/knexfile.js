@@ -1,4 +1,5 @@
 const path = require('path');
+const { config } = require('../config');
 
 const MIGRATION_DIR = path.resolve(__dirname, 'migrations');
 const MIGRATION_TABLE_NAME = 'migrations';
@@ -6,11 +7,7 @@ const MIGRATION_TABLE_NAME = 'migrations';
 module.exports = {
   development: {
     client: 'postgresql',
-    connection: {
-      database: 'db_challenge',
-      user: 'user',
-      password: 'pass',
-    },
+    connection: config.database,
     migrations: {
       tableName: MIGRATION_TABLE_NAME,
       directory: MIGRATION_DIR,
@@ -18,11 +15,7 @@ module.exports = {
   },
   production: {
     client: 'postgresql',
-    connection: {
-      database: 'db_dhallenge',
-      user: 'user',
-      password: 'pass',
-    },
+    connection: config.database,
     pool: {
       min: 2,
       max: 10,
