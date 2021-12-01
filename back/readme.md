@@ -8,6 +8,7 @@ root
 │   │   ├── controllers
 │   │   ├── middlewares
 │   │   ├── repositories
+│   │   ├── schemas
 │   │   └── services
 │   ├── config
 │   └── db

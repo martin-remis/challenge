@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const logger = require('../logger');
+const { logger } = require('../logger');
 const { createTasks } = require('../repositories/tasks');
 const { config } = require('../../config');
 

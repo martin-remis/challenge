@@ -5,7 +5,7 @@ const { router } = require('./app/router');
 const { config } = require('./config');
 const { checkMigrations } = require('./db/check-migrations');
 const { logger } = require('./app/logger');
-const { errorsHandler } = require('./app/middlewares/errorHandler');
+const { errorsHandler } = require('./app/middlewares/error-handler');
 
 const app = express();
 const { port } = config;
