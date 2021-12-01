@@ -13,6 +13,10 @@ const config = {
     database: process.env.DB_NAME || 'db_challenge',
     port: process.env.DB_PORT || '5432',
   },
+  loreFaker: {
+    apiUrl: process.env.LOREM_FAKER_API_URL || 'https://lorem-faker.vercel.app/api',
+    defaultQuantity: process.env.LOREM_FAKER_DEFAULT_QUANTITY || 3,
+  },
 };
 
 exports.config = config;

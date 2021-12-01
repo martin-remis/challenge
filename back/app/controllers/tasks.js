@@ -1,9 +1,10 @@
+const { logger } = require('../logger');
 const loremFakerService = require('../services/loremFaker');
 
 const DEFAULT_QUANTITY = 3;
 
 exports.getTasks = async (req, res, next) => {
-  console.log(JSON.stringify(req.body));
+  logger.info('getTask controller start');
   try {
     // TODO: implement AJV or some validator
     const quantity = req.query?.quantity || DEFAULT_QUANTITY;
@@ -17,9 +18,11 @@ exports.getTasks = async (req, res, next) => {
 };
 
 exports.putTasks = (req, res, next) => {
-  console.log(JSON.stringify(req.body));
+  logger.info('putTask controller start');
   try {
-    return res.send(req.body);
+    // TODO: implement AJV or some validator
+    logger.info(`Task with ID ${req.params?.id} is done!`);
+    return res.sendStatus(204);
   } catch (error) {
     return next(error);
   }

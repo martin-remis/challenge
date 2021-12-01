@@ -1,17 +1,19 @@
 const axios = require('axios').default;
+const logger = require('../logger');
 const { createTasks } = require('../repositories/tasks');
+const { config } = require('../../config');
 
 const parseTasksForDb = (tasks = []) => tasks.map((task) => ({ title: task }));
 
-exports.getSentences = async (quantity) => {
+exports.getSentences = async (requestedQuantity) => {
   try {
-    // TODO: config this link
-    const response = await axios.get(`https://lorem-faker.vercel.app/api?quantity=${quantity}`);
-    // TODO: persist data
+    const quantity = requestedQuantity || config.loreFaker.defaultQuantity;
+    const response = await axios.get(`${config.loreFaker.apiUrl}?quantity=${quantity}`);
     const mapedTasks = parseTasksForDb(response?.data);
+
     return createTasks(mapedTasks);
   } catch (error) {
-    console.error(error.message);
+    logger.error(error.message);
     return [];
   }
 };

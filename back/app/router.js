@@ -5,6 +5,6 @@ const router = Router();
 
 router.get('/tasks', getTasks);
 
-router.put('/tasks', putTasks);
+router.put('/tasks/:id', putTasks);
 
 exports.router = router;

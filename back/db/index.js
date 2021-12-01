@@ -6,8 +6,6 @@ const { config } = require('../config');
 const MIGRATION_DIR = path.resolve(__dirname, 'migrations');
 const MIGRATION_TABLE_NAME = 'migrations';
 
-console.log(MIGRATION_DIR);
-
 const dbConfig = {
   client: 'pg',
   connection: config.database,
@@ -16,7 +14,5 @@ const dbConfig = {
     directory: MIGRATION_DIR,
   },
 };
-
-console.log(JSON.stringify(dbConfig));
 
 module.exports = knex(dbConfig);
