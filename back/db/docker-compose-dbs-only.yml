@@ -1,0 +1,14 @@
+# docker-compose to run databases
+version: "3"
+services:
+  postgres:
+    image: postgres:11
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    networks:
+      - default

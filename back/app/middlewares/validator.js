@@ -7,6 +7,6 @@ exports.schemaValidator = (validateSchema) => async (req, res, next) => {
     return next();
   } catch (error) {
     logger.info('Invalid request schema');
-    return next(error);
+    return next({ status: 400, internalCode: 'validation_error' });
   }
 };

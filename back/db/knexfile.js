@@ -13,6 +13,14 @@ module.exports = {
       directory: MIGRATION_DIR,
     },
   },
+  testing: {
+    client: 'postgresql',
+    connection: config.database,
+    migrations: {
+      tableName: MIGRATION_TABLE_NAME,
+      directory: MIGRATION_DIR,
+    },
+  },
   production: {
     client: 'postgresql',
     connection: config.database,

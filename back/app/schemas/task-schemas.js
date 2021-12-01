@@ -6,7 +6,7 @@ const tasksSchema = {
   $async: true,
   type: 'object',
   properties: {
-    id: { type: 'string', format: 'uuid' },
+    id: { type: 'string' },
     title: { type: 'string' },
   },
   required: ['id', 'title'],
