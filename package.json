@@ -1,1 +1,13 @@
-{}
+{
+  "husky": {
+    "hooks": {
+      "pre-push": "cd back && npm run test"
+    }
+  },
+  "devDependencies": {
+    "husky": "^7.0.4"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}

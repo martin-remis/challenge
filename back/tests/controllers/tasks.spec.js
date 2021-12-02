@@ -15,7 +15,6 @@ describe('Tasks integration tests', () => {
       mockGetRequest('https://lorem-faker.vercel.app', '/api?quantity=4', ['asd', 'qwe', 'poiu', 'zxc']);
 
       const response = await request(app).get('/tasks?quantity=4');
-      console.log(JSON.stringify(response));
 
       const persistedTasks = await knex('tasks').select('*');
 

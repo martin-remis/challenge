@@ -23,6 +23,11 @@
     "url": "https://github.com/martin-remis/challenge/issues"
   },
   "homepage": "https://github.com/martin-remis/challenge#readme",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test"
+    }
+  },
   "dependencies": {
     "ajv": "^8.8.2",
     "axios": "^0.24.0",
