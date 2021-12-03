@@ -21,7 +21,7 @@ const Card = styled.div`
 `;
 
 const Index = (props) => {
-    return <Card>{props.children}</Card>; 
+    return <Card onClick={() => props.onClick(props.task)} id={props.task.id}>{props.children}</Card>; 
 };
 
 export default Index;
