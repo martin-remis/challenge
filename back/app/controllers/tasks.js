@@ -18,9 +18,12 @@ exports.getTasks = async (req, res, next) => {
 exports.postTasks = async (req, res, next) => {
   logger.info('postTask controller start');
   try {
-    const quantity = req.query?.quantity || DEFAULT_QUANTITY;
+    const quantity = req.query?.quantity;
+    const safeQuantity = Number.isInteger(parseInt(quantity, 10))
+      ? parseInt(quantity, 10)
+      : DEFAULT_QUANTITY;
 
-    const response = await loremFakerService.createTasks(quantity);
+    const response = await loremFakerService.createTasks(safeQuantity);
 
     return res.send(response);
   } catch (error) {

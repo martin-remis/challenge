@@ -12,7 +12,7 @@ const Modal = styled.div`
 
 .modal-main {
   position:fixed;
-  background: white;
+  background-color: #b8c7de;
   width: 80%;
   height: auto;
   top:50%;
