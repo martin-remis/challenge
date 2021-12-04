@@ -14,18 +14,26 @@ root
 │   ├── db
 │   │   ├── init
 │   │   └── migrations
-│   └── tests
+│   ├── tests
+│   ├── app.js
+│   └── server.js
 └── front
+    ├── public
+    └── src
+        ├── components
+        ├── utils
+        └── index.js
 ```
+
+## Run all with docker-compose
+1. Install docker-compose.
+2. Execute `docker-compose up --build` at the `root` folder.
+3. Browse at `http://localhost:3000/`.
+
+> You may or may not need to use `sudo` depending on OS.
 
 ## Back
 In order to run back project you have to use docker-compose on a local environmet, or build the dockerfile and provide a database.
-
-### With docker-compose
-1. Install docker-compose.
-2. Execute `docker-compose up --build` at the `back` folder.
-
-> You may or may not need to use `sudo` depending on OS.
 
 ### With Dockerfile
 1. Install docker.
@@ -33,15 +41,15 @@ In order to run back project you have to use docker-compose on a local environme
 3. Build and excecute the app at `back` folder with:
 ```
 docker build . -t node-web-app
-docker run -p 3000:3000 -d node-web-app
+docker run -p 8080:8080 -d node-web-app
 ```
 
-### Manually
+### Run manually
 1. Install node 16.
 2. Install dependencies with `npm i`
 3. Configure the an env file at `back/.env` like this:
 ```
-PORT=3000
+PORT=8080
 DB_PORT=35432
 DB_PORT_TEST=35432
 DB_NAME=db_challenge
@@ -60,4 +68,17 @@ Once there is a db running, update the testing database to the current migration
 Finally, exceute the tests with `npm run test`
 
 ## Front
-TBD.
+In order to run the web app you have to use docker-compose on a local environmet, or build the dockerfile and provide the api and the database.
+
+### With Dockerfile
+1. Install docker.
+3. Build and excecute the app at `front` folder with:
+```
+docker build . -t react-web-app
+docker run -p 3000:3000 -d react-web-app
+```
+
+### Run manually
+1. Install node 16.
+2. Install dependencies with `npm i`
+4. Start the server with `npm run start`

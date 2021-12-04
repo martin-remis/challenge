@@ -1,15 +1,13 @@
-# docker-compose to run database and api
+# docker-compose to run database, api and app
 version: "3"
 services:
-  app:
+  api:
     depends_on:
       - postgres
     container_name: back_api
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    build: ./back
     ports:
-      - "3000:3000"
+      - "8080:8080"
     networks:
       - default
 
@@ -21,6 +19,16 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
     volumes:
-      - ./db/init:/docker-entrypoint-initdb.d
+      - ./back/db/init:/docker-entrypoint-initdb.d
+    networks:
+      - default
+
+  app:
+    depends_on:
+      - api
+    container_name: react_app
+    build: ./front
+    ports:
+      - "3000:3000"
     networks:
       - default

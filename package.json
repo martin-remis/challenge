@@ -1,4 +1,17 @@
 {
+  "name": "fullstack-challenge",
+  "version": "1.0.0",
+  "description": "fullstack challenge",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martin-remis/challenge.git"
+  },
+  "author": "martin remis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martin-remis/challenge/issues"
+  },
+  "homepage": "https://github.com/martin-remis/challenge#readme",
   "husky": {
     "hooks": {
       "pre-push": "cd back && npm run test"

@@ -1,14 +1,29 @@
 const { logger } = require('../logger');
-const loremFakerService = require('../services/lorem-faker');
+const tasksService = require('../services/tasks');
+const loremFakerService = require('../services/tasks');
 
 const DEFAULT_QUANTITY = 3;
 
 exports.getTasks = async (req, res, next) => {
   logger.info('getTask controller start');
   try {
-    const quantity = req.query?.quantity || DEFAULT_QUANTITY;
+    const response = await tasksService.getTasks();
 
-    const response = await loremFakerService.getSentences(quantity);
+    return res.send(response);
+  } catch (error) {
+    return next(error);
+  }
+};
+
+exports.postTasks = async (req, res, next) => {
+  logger.info('postTask controller start');
+  try {
+    const quantity = req.query?.quantity;
+    const safeQuantity = Number.isInteger(parseInt(quantity, 10))
+      ? parseInt(quantity, 10)
+      : DEFAULT_QUANTITY;
+
+    const response = await loremFakerService.createTasks(safeQuantity);
 
     return res.send(response);
   } catch (error) {

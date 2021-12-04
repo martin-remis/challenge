@@ -1,4 +1,5 @@
 const request = require('supertest');
+const faker = require('faker');
 
 const knex = require('../../db');
 const app = require('../../app');
@@ -12,9 +13,24 @@ describe('Tasks integration tests', () => {
 
   describe('get tasks test', () => {
     test('Response with N elements', async () => {
+      const persistedTasks = await knex('tasks').insert([
+        { title: faker.lorem.sentence(3) },
+        { title: faker.lorem.sentence(3) },
+        { title: faker.lorem.sentence(3) },
+        { title: faker.lorem.sentence(3) }])
+        .returning('*');
+
+      const response = await request(app).get('/tasks');
+
+      expect(response.body.length).toBe(persistedTasks.length);
+    });
+  });
+
+  describe('post tasks test', () => {
+    test('Response with N elements', async () => {
       mockGetRequest('https://lorem-faker.vercel.app', '/api?quantity=4', ['asd', 'qwe', 'poiu', 'zxc']);
 
-      const response = await request(app).get('/tasks?quantity=4');
+      const response = await request(app).post('/tasks?quantity=4');
 
       const persistedTasks = await knex('tasks').select('*');
 
@@ -24,7 +40,7 @@ describe('Tasks integration tests', () => {
     test('Response with default elements', async () => {
       mockGetRequest('https://lorem-faker.vercel.app', '/api?quantity=3', ['asd', 'qwe', 'poiu']);
 
-      const response = await request(app).get('/tasks');
+      const response = await request(app).post('/tasks');
 
       const persistedTasks = await knex('tasks').select('*');
 
