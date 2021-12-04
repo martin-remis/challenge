@@ -1,4 +1,4 @@
-# docker-compose to run database and api
+# docker-compose to run database, api and app
 version: "3"
 services:
   api:

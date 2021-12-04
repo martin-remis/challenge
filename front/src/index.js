@@ -5,12 +5,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './index.css';
-import FullCard from './FullCard';
-import Grid from './Grid';
-import Card from './Card';
-import Column from './Column';
-import RequestCards from './RequestCards';
-import Loader from './Loader';
+import FullCard from './components/FullCard';
+import Grid from './components/Grid';
+import Card from './components/Card';
+import Column from './components/Column';
+import RequestCards from './components/RequestCards';
+import Loader from './components/Loader';
 
 const renderCard = (task, showModal) => {
   return (<Column className="m">

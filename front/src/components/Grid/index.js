@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mediaQueries } from '../utils/breakpoints';
+import { mediaQueries } from '../../utils/breakpoints';
 
 const Grid = styled.div`
     display: grid;
