@@ -22,3 +22,13 @@ services:
       - ./back/db/init:/docker-entrypoint-initdb.d
     networks:
       - default
+
+  app:
+    depends_on:
+      - api
+    container_name: react_app
+    build: ./front
+    ports:
+      - "3000:3000"
+    networks:
+      - default
