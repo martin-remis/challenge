@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { mediaQueries } from "../utils/breakpoints";
+import React from 'react';
+import styled from 'styled-components';
+import { mediaQueries } from '../utils/breakpoints';
 
 const Grid = styled.div`
     display: grid;
@@ -15,8 +15,8 @@ const Grid = styled.div`
     }
     grid-column-gap: 40px;
 `;
-const Index = (props) => {
-    return <Grid>{props.children}</Grid>; 
+const Index = function (props) {
+  return <Grid>{props.children}</Grid>;
 };
 
 export default Index;

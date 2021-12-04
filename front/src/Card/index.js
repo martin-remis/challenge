@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Card = styled.div`
   background-color: #a1beed;
@@ -20,7 +20,7 @@ const Card = styled.div`
   }
 `;
 
-const Index = ({ task, children, onClick }) => {
+const Index = function ({ task, children, onClick }) {
   return <Card onClick={() => onClick(task)} id={task.id}>{children}</Card>;
 };
 

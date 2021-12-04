@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import Column from '../Column';
+import Button from '../Button';
 
 const RequestCards = styled.div`
   background-color: #eba134;
@@ -16,7 +17,7 @@ const RequestCards = styled.div`
 
 const Label = styled.label`
   margin-right: 20px;
-`
+`;
 
 const InputNumber = styled.input`
   border-radius: 8px;
@@ -26,17 +27,17 @@ const InputNumber = styled.input`
   :focus { 
     outline: none;
  }
-`
+`;
 
-const Index = ({ handleSubmit, quantity, handleChange }) => {
+const Index = function ({ handleSubmit, quantity, handleChange }) {
   return (
     <Column className="xl">
       <RequestCards>
-        <div>
+        <div style={{ alignItems: 'center', display: 'flex' }}>
           <Label>Quantity</Label>
           <InputNumber type="text" value={quantity} onChange={handleChange} />
         </div>
-        <input type="submit" value="New tasks" onClick={handleSubmit} />
+        <Button type="submit" onClick={handleSubmit}>New tasks</Button>
       </RequestCards>
     </Column>
   );
