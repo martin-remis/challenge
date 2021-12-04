@@ -1,0 +1,24 @@
+# docker-compose to run database, api and app
+version: "3"
+services:
+  api:
+    depends_on:
+      - postgres
+    container_name: back_api_1
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+
+  postgres:
+    image: postgres:11
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+    networks:
+      - default

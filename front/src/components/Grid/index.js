@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mediaQueries } from '../../utils/breakpoints';
+import { mediaQueries, MAX_WIDTH_MODAL } from '../../utils/breakpoints';
 
 const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    max-width: 1200px;
+    max-width: ${MAX_WIDTH_MODAL}px;
     width: 100%;
     ${mediaQueries[0]} {
         grid-template-columns: repeat(6, 1fr);

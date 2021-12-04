@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from '../Button';
+import { MAX_WIDTH_MODAL } from '../../utils/breakpoints'
 
 const Modal = styled.div`
 .modal {
@@ -19,7 +20,8 @@ const Modal = styled.div`
   box-sizing: border-box;
   position:fixed;
   background-color: #b8c7de;
-  width: 50%;
+  width: 75%;
+  max-width: ${MAX_WIDTH_MODAL}px;
   height: 70%;
   top:50%;
   left:50%;
@@ -30,19 +32,6 @@ const Modal = styled.div`
   justify-content: space-around;
 }
 
- ${'' /* TODO: check this */}
-@media (max-width: 1080) { 
-  .modal-main {
-    width: 66%;
-  }
-}
-
-@media (max-width: 540) { 
-  .modal-main {
-    width: 75%;
-  }
-}
-
 .display-block {
   display: block;
 }
@@ -50,11 +39,6 @@ const Modal = styled.div`
 .display-none {
   display: none;
 }
-
-.modal-buttons {
-
-}
-
 `;
 
 const Index = function ({ handleClose, handleComplete, show, children }) {
